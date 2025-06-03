@@ -1,22 +1,43 @@
-name: Awesome List Dead Links (daily check)  # Name of the workflow
+# This workflow checks for dead links in the Awesome List on a daily basis.
+
+name: Awesome List Dead Links (daily check)
 
 on:
+  # Schedule the workflow to run every 24 hours.
   schedule:
-    - cron: '0 */24 * * *' # Schedule the workflow to run every 24 hours
-  workflow_dispatch:  # Allows manual triggering of the workflow
+    - cron: '0 */24 * * *'
+  # Allows manual triggering of the workflow through the GitHub Actions UI.
+  workflow_dispatch:
 
 jobs:
   linkChecker:
-    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+    # The job will run on the latest Ubuntu virtual environment.
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository  # Step to checkout the repository
-        uses: actions/checkout@v4  # Use the checkout action version 4
-      - name: Run lychee link checker  # Step to run the lychee link checker
-        uses: lycheeverse/lychee-action@v1.10.0  # Use the lychee action version 1.10.0
+      - name: Checkout repository
+        # Uses the official GitHub checkout action to clone the repository.
+        uses: actions/checkout@v4
+
+      - name: Run lychee link checker
+        # Utilizes the lychee-action to check for dead links in the specified file.
+        uses: lycheeverse/lychee-action@v1.10.0
         with:
-          args: --verbose --no-progress --exclude-mail --timeout 20 --format markdown --output ./lychee/report.md README.md  # Arguments for the lychee link checker
-      - name: Upload link checker report  # Step to upload the link checker report
-        uses: actions/upload-artifact@v4  # Use the upload artifact action version 4
+          # Arguments for the lychee link checker:
+          # --verbose: Enables verbose logging.
+          # --no-progress: Disables progress bar output.
+          # --exclude-mail: Excludes email addresses from the link checking.
+          # --timeout 20: Sets the request timeout to 20 seconds.
+          # --format markdown: Outputs the report in markdown format.
+          # README.md: The file to be checked.
+          args: --verbose --no-progress --exclude-mail --timeout 20 --format markdown README.md
+          # Designates the output file for the report.
+          output: lychee/report.md
+
+      - name: Upload link checker report
+        # Uploads the generated report as an artifact.
+        uses: actions/upload-artifact@v4
         with:
-          name: lychee-report  # Name of the artifact
-          path: ./lychee/report.md  # Path to the report file
+          # Name of the artifact.
+          name: lychee-report
+          # File path to the report.
+          path: lychee/report.md
