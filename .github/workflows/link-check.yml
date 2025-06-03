@@ -29,7 +29,7 @@ jobs:
           # --timeout 20: Sets the request timeout to 20 seconds.
           # --format markdown: Outputs the report in markdown format.
           # README.md: The file to be checked.
-          args: --verbose --no-progress --exclude-mail --timeout 20 --format markdown README.md
+          args: --verbose --no-progress --exclude-mail --timeout 20 --format markdown --exclude-list .lycheeignore README.md
           # Designates the output file for the report.
           output: lychee/report.md
 
