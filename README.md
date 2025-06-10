@@ -39,6 +39,7 @@
 * [There’s An AI For That](https://theresanai.com) – Submit your AI product for discovery.
 * [Futurepedia](https://www.futurepedia.io) – AI tools aggregator with launch listings.
 * [Productivity Directory](https://productivity.directory) – Find Productivity Tools
+* [Toolkitly](https://www.toolkitly.com) – Your Go-To Platform for Tech Tool Discussions, Innovations & Real-Time Updates!
 
 
 ---
