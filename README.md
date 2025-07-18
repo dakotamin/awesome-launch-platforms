@@ -35,6 +35,7 @@
 ## 🧠 AI & Tool-Focused Launch Directories
 
 * [Altern](https://altern.ai) – AI product directory for makers.
+* [AI For Developers](https://aifordevelopers.org) - Access curated AI SDKs, copilots, and APIs to supercharge your development workflow.
 * [uNeed](https://uneed.best) – Discover and share AI tools.
 * [There’s An AI For That](https://theresanai.com) – Submit your AI product for discovery.
 * [Futurepedia](https://www.futurepedia.io) – AI tools aggregator with launch listings.
